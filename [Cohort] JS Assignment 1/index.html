@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Mood Tracker</title>
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="app-container">
+        <div>
+          <div><h1 class="app-heading">Mood Tracker</h1></div>
+          <div><h2 class="app-subheading">How are you feeling today?</h2></div>
+          <div class="mood-list">
+            <div class="moods red">
+              <p>Sad</p>
+              <p>🥺</p>
+            </div>
+            <div class="moods purple">
+              <p>Happy</p>
+              <p>😊</p>
+            </div>
+            <div class="moods blue">
+              <p>Neutral</p>
+              <p>😑</p>
+            </div>
+            <div class="moods yellow">
+              <p>Excited</p>
+              <p>😃</p>
+            </div>
+          </div>
+          <div class="centered-div">
+            <p id="submit-button">Submit Mood</p>
+            <p id="reset-button" class="btn">Reset Mood</p>
+          </div>
+
+          <div class="calender">
+            <div class="calender-container">
+              <div class="calender-header">
+                <p class="calender-current-date">March 2025</p>
+                <div class="calender-navigation">
+                  <div id="past" class="nav"><p></p></div>
+                  <div class="future nav"><p></p></div>
+                </div>
+              </div>
+              <div class="calender-body">
+                <ul class="calender-weekdays">
+                  <li>Sun</li>
+                  <li>Mon</li>
+                  <li>Tue</li>
+                  <li>Wed</li>
+                  <li>Thu</li>
+                  <li>Fri</li>
+                  <li>Sat</li>
+                </ul>
+                <ul class="calender-dates"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="log-container">
+        <div><h1 class="app-heading">Mood Log</h1></div>
+        <div class="log-table">
+          <div class="mood-table">
+            <h2>Mood</h2>
+            <ul id="mood-table-list"></ul>
+          </div>
+          <div class="date-table">
+            <h2>Date</h2>
+            <ul id="date-table-list"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
