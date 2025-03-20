@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quote Generator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <img src="./image.png" class="bg" id="downImg" />
+    <div class="container">
+      <div class="quote-container">
+        <div class="button-container">
+          <button class="copying" id="copy">
+            <img src="./assets/copy.png" alt="copy" width="30" />
+          </button>
+          <button class="copying" id="download">
+            <img src="./assets/download.png" alt="download" width="30" />
+          </button>
+        </div>
+        <div class="quote-box">
+          <h1>
+            <q id="quote"> </q>
+          </h1>
+          <h2 id="author"></h2>
+        </div>
+        <div class="share-container">
+          <button class="btn X" id="share">Share X</button>
+          <button class="btn new" id="new">New Quote</button>
+        </div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  color: #ddd;
+}
+
+.bg {
+  position: absolute;
+  z-index: -10;
+  width: 100%;
+  height: 100vh;
+}
+
+.quote-container {
+  padding: 40px;
+  width: 80%;
+  background-color: rgba(0, 0, 0, 0.31);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 24px;
+  backdrop-filter: blur(20px);
+}
+.button-container {
+  display: flex;
+  justify-content: end;
+  gap: 16px;
+  margin: 0 0 60px 0;
+}
+
+.copying {
+  cursor: pointer;
+}
+.copying:hover {
+  transform: scale(0.95);
+}
+
+.quote-box {
+  padding: 96px 0;
+}
+h1 {
+  margin: 0 0 18px 0;
+}
+#author {
+  text-align: end;
+  margin: 0 12px 0 0;
+}
+
+.share-container {
+  display: flex;
+  gap: 24px;
+}
+
+.btn {
+  padding: 12px 24px;
+  cursor: pointer;
+  font-weight: 500;
+  border: none;
+
+  font-size: 16px;
+}
+
+.X {
+  background-color: #000;
+  color: #fff;
+}
+.new {
+  background-color: #fff;
+  color: #000;
+}
+
+.X:hover {
+  color: #ddd;
+}
+.new:hover {
+  color: #777;
+}
