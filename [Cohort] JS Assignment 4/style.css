@@ -1,0 +1,155 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: poppins;
+}
+
+.header {
+  width: 100%;
+  padding: 24px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 24px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.13);
+}
+
+.logo {
+  font-weight: 600;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+  padding: 60px 40px;
+}
+
+.hero {
+  display: flex;
+}
+
+.book-box {
+  display: flex;
+  padding: 40px 20px;
+  background-color: #ced4da;
+  border-radius: 9px;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.suggestion-box {
+  display: flex;
+  width: 60%;
+  flex-direction: column;
+  gap: 16px;
+}
+.suggestion-box h2 {
+  text-align: center;
+  font-size: 32px;
+}
+
+.hero-book-desc {
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  gap: 24px;
+}
+
+.btn {
+  width: fit-content;
+  background-color: #ffa94d;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 24px;
+  cursor: pointer;
+}
+.btn:hover {
+  box-shadow: 0 0 0 2px #ffa94d;
+  color: #f76707;
+  background-color: #fff;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  padding: 32px 0;
+}
+
+.sort-filter-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-sort {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.input-box {
+  padding: 16px 24px;
+  font-size: 16px;
+  min-width: 400px;
+  width: 100%;
+  background-color: #ddd;
+  border: none;
+  border-radius: 999px;
+}
+
+#sort {
+  padding: 8px;
+  font-size: 16px;
+}
+
+.view {
+  display: flex;
+  gap: 16px;
+}
+
+#grid {
+  cursor: pointer;
+}
+
+#list {
+  cursor: pointer;
+}
+
+#grid:hover {
+  transform: scale(1.05);
+}
+
+#list:hover {
+  transform: scale(1.05);
+}
+
+.books-container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  /* display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  gap: 16px; */
+  border-radius: 9px;
+  padding: 32px 64px;
+  background-color: #ced4da;
+  margin-top: 32px;
+}
+
+.book {
+  border: 1px solid black;
+  display: flex;
+  gap: 90px;
+  padding: 24px;
+}
+.book-desc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.book-img {
+  width: 100%;
+}
