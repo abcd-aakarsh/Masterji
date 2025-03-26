@@ -1,18 +1,21 @@
-const url =
-  "https://api.freeapi.app/api/v1/public/books?page=1&limit=10&inc=kind%252Cid%252Cetag%252CvolumeInfo";
+/* Fetch function for books */
 
-const fetchBooks = async () => {
+const fetchBooks = async (pageNum) => {
+  const url = `https://api.freeapi.app/api/v1/public/books?page=${pageNum}&limit=10&inc=kind%252Cid%252Cetag%252CvolumeInfo`;
+
   const response = await fetch(url);
   const data = await response.json();
-  console.log(data.data.data);
+
   const booksData = data.data.data;
   localStorage.setItem("booksData", JSON.stringify([...booksData]));
-  console.log(booksData);
+
   displayBooks(booksData);
 };
-fetchBooks();
+fetchBooks(1);
 
-const randomQuote = async () => {
+/* Suggested Book fetch function */
+
+const randomBook = async () => {
   const response = await fetch(
     "https://api.freeapi.app/api/v1/public/books/book/random"
   );
@@ -30,10 +33,16 @@ const randomQuote = async () => {
   const imageUrl = book.volumeInfo?.imageLinks?.thumbnail;
   heroImg.setAttribute("src", imageUrl);
 };
-randomQuote();
+randomBook();
+
+/* Display books function */
 
 const displayBooks = (booksData) => {
   const booksContainer = document.querySelector(".books-container");
+  booksContainer.innerHTML = "";
+
+  /* Creating book elements  */
+
   booksData.forEach((book) => {
     const bookContainer = document.createElement("div");
     const imgDiv = document.createElement("div");
@@ -77,6 +86,8 @@ const displayBooks = (booksData) => {
   });
 };
 
+/* Grid view function*/
+
 const gridView = document.getElementById("grid");
 gridView.addEventListener("click", () => {
   const booksContainer = document.querySelector(".books-container");
@@ -89,6 +100,8 @@ gridView.addEventListener("click", () => {
   booksContainer.classList.add("grid-view");
   booksContainer.classList.remove("list-view");
 });
+
+/* List view function */
 
 const listView = document.getElementById("list");
 listView.addEventListener("click", () => {
@@ -106,6 +119,8 @@ listView.addEventListener("click", () => {
 
 const inputBox = document.querySelector(".input-box");
 
+/* Filtering list function */
+
 const filterList = () => {
   const searchingValue = inputBox.value.trim();
   let books = JSON.parse(localStorage.getItem("booksData"));
@@ -122,11 +137,99 @@ const filterList = () => {
   });
   const booksContainer = document.querySelector(".books-container");
   booksContainer.innerHTML = "";
+
   displayBooks(filteredBooks);
+  if (booksContainer.classList.contains("grid-view")) {
+    applyGridView();
+  } else {
+    applyListView();
+  }
 };
 
 inputBox.addEventListener("input", filterList);
 
+/* Sorting function */
+
 const sort = document.getElementById("sort");
 
-// sort.addEventListener("change", listener);
+const sortingHandler = () => {
+  const booksData = JSON.parse(localStorage.getItem("booksData")) || [];
+  console.log("Before", booksData);
+  console.log(sort.value);
+  switch (sort.value) {
+    case "A TO Z":
+      booksData.sort((a, b) =>
+        a.volumeInfo.title.localeCompare(b.volumeInfo.title)
+      );
+      break;
+    case "Z TO A":
+      booksData.sort((a, b) =>
+        b.volumeInfo.title.localeCompare(a.volumeInfo.title)
+      );
+      break;
+    case "NEW TO OLD":
+      booksData.sort(
+        (a, b) =>
+          new Date(b.volumeInfo.publishedDate) -
+          new Date(a.volumeInfo.publishedDate)
+      );
+      break;
+    case "OLD TO NEW":
+      booksData.sort(
+        (a, b) =>
+          new Date(a.volumeInfo.publishedDate) -
+          new Date(b.volumeInfo.publishedDate)
+      );
+      break;
+  }
+  const booksContainer = document.querySelector(".books-container");
+  booksContainer.innerHTML = "";
+  displayBooks(booksData);
+  if (booksContainer.classList.contains("grid-view")) {
+    applyGridView();
+  } else {
+    applyListView();
+  }
+};
+
+sort.addEventListener("change", sortingHandler);
+
+/* Apply listview function after filtering */
+
+const applyListView = () => {
+  const booksContainer = document.querySelector(".books-container");
+  const bookContainer = document.querySelectorAll(".book");
+
+  bookContainer.forEach((e) => {
+    e.classList.add("book-list-view");
+    e.classList.remove("grid-book-view");
+  });
+
+  booksContainer.classList.remove("grid-view");
+  booksContainer.classList.add("list-view");
+};
+
+/* Apply gridview function after filtering */
+
+const applyGridView = () => {
+  const booksContainer = document.querySelector(".books-container");
+  const bookContainer = document.querySelectorAll(".book");
+  bookContainer.forEach((e) => {
+    e.classList.remove("book-list-view");
+    e.classList.add("grid-book-view");
+  });
+
+  booksContainer.classList.add("grid-view");
+  booksContainer.classList.remove("list-view");
+};
+
+/* Pagination function */
+
+const pagination = document.querySelectorAll(".pagebtn");
+pagination.forEach((pg) => {
+  const booksContainer = document.querySelector(".books-container");
+  booksContainer.innerHTML = "";
+  pg.addEventListener("click", function () {
+    fetchBooks(pg.value);
+  });
+});

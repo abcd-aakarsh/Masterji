@@ -9,3 +9,4 @@
   <p>Quote of the Day Application</p>
 <a href="https://masterji-3tih.vercel.app/">Live</a>
 </div>
+<div>
