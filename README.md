@@ -10,3 +10,7 @@
 <a href="https://masterji-3tih.vercel.app/">Live</a>
 </div>
 <div>
+<h3>[Cohort] JS Assignment 3</h3>
+  <p>Book Library Application</p>
+<a href="https://masterji-7gpu.vercel.app/">Live</a>
+</div>
